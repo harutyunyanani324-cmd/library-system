@@ -1,0 +1,19 @@
+from abc import ABC, abstractmethod
+
+class LibraryItem(ABC):
+    def __init__(self, title, item_id):
+        self.title = title
+        self.item_id = item_id
+        self.is_available = True
+
+    @abstractmethod
+    def borrow(self):
+        pass
+
+    @abstractmethod
+    def return_item(self):
+        pass
+
+    def display_info(self):
+        status = "Available" if self.is_available else "Borrowed"
+        print(f"[{self.item_id}] {self.title} - {status}")
